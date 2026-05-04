@@ -1,6 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict
-
+from typing import List, Optional,Dict
 
 
 class create_user(BaseModel):
@@ -8,8 +8,8 @@ class create_user(BaseModel):
     username: str
     email: str
     password: str
-    phone: str
-    type: str
+    phone: Optional[str] = None
+    type: Optional[str] = None
 
 class response_user(BaseModel):
     id: int
@@ -24,3 +24,10 @@ class response_user(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
+class update_user(BaseModel):
+    name: Optional[str] = None
+    username: Optional[str] = None
+    email: Optional[str] = None
+    password: Optional[str] = None
+    phone: Optional[str] = None
+    type: Optional[str] = None
